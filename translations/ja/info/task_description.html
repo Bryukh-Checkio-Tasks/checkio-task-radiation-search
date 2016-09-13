@@ -1,0 +1,76 @@
+﻿<div style="text-align: center">
+    <img src="{{MEDIA}}title.png" style="max-height: 350px">
+</div>
+<p>
+    ロボット達は放射能が発生している島への供給を停止し、拾った最後のコンテナを調査していました。
+    そこには5つの異なる種類のスペアパーツが入っており種類毎に同じ番号が書かれてました。
+    スペアパーツの一番大きいグループから放射能が発生しているようです。 (各パーツは隣接して納めれらています)
+    コンテナの中からそのグループを発見し、ロボット達にそのスペアパーツの数と種類を教えてあげてましょう。
+</p>
+
+<p>
+    コンテナは正方行列として表されます。
+    1から5の番号がスペアパーツの種類をあらわすラベルとして使用されており、それが行列の要素となっています。
+    0は空のマスを表します。
+    同じ番号で互いに隣接している一番大きいグループを発見し、そしてそのスペアパーツの数と番号を指摘してください。</p>
+
+<p class="for_info_only" style="text-align: center;">
+    <img src="{{ MEDIA }}radiation-search.png" alt="radiation_search" style="max-height: 235px"/>
+</p>
+
+<p><strong>入力: </strong>正方行列 (リストのリスト)。 各リストはinteger型からなる。</p>
+
+<p><strong>出力: </strong>最大のグループに含まれるスペアパーツの数と種類の番号 (2つのinteger型からなるリスト)</p>
+
+
+<div class="for_info_only">
+    <p><strong>例:</strong></p>
+
+<pre class="brush: python">{% if interpreter.slug == "js-node" %}
+radiationSearch([
+    [1, 2, 3, 4, 5],
+    [1, 1, 1, 2, 3],
+    [1, 1, 1, 2, 2],
+    [1, 2, 2, 2, 1],
+    [1, 1, 1, 1, 1]]) == [14, 1]
+
+radiationSearch([
+    [2, 1, 2, 2, 2, 4],
+    [2, 5, 2, 2, 2, 2],
+    [2, 5, 4, 2, 2, 2],
+    [2, 5, 2, 2, 4, 2],
+    [2, 4, 2, 2, 2, 2],
+    [2, 2, 4, 4, 2, 2]]) == [19, 2]
+{% else %}
+checkio([
+    [1, 2, 3, 4, 5],
+    [1, 1, 1, 2, 3],
+    [1, 1, 1, 2, 2],
+    [1, 2, 2, 2, 1],
+    [1, 1, 1, 1, 1]]) == [14, 1]
+
+checkio([
+    [2, 1, 2, 2, 2, 4],
+    [2, 5, 2, 2, 2, 2],
+    [2, 5, 4, 2, 2, 2],
+    [2, 5, 2, 2, 4, 2],
+    [2, 4, 2, 2, 2, 2],
+    [2, 2, 4, 4, 2, 2]]) == [19, 2]
+{% endif %}</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+    このタスクで Union-findingアルゴリズムと素集合データ構造(Disjoint-set data structures)について学ぶことができるでしょう。
+    これは画像認識や地理の分析、集合の分割モデルにさえ使用されています。
+
+</p>
+
+
+<p>
+    <strong>事前条件:</strong><br>
+    3 &le; len(matrix) &le; 10<br>
+    all(all(0 &le; x &le; 5 for x in row) for row in matrix<br>
+    any(any(x for x in row) for row in matrix<br>
+    テストの解答は常に1種類です。
+</p>
